@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog - Computação Amostra</title>
-  <%= stylesheet_link_tag    'application' %>
-  <%= javascript_include_tag 'application' %>
+  <title>BlogCa</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="container responsive">
-		<div class="row">
-			<%= render 'layouts/navbar' %>
-			<%= render 'layouts/messages' %>
-			<%= yield %>
-		</div>
-	</div>
+
+<%= yield %>
+
 </body>
 </html>
