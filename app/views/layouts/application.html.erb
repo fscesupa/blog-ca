@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BlogCa</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>Blog - Computação Amostra</title>
+  <%= stylesheet_link_tag    'application' %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div class="container responsive">
+		<div class="row">
+			<%= render 'layouts/navbar' %>
+			<%= render 'layouts/messages' %>
+			<%= yield %>
+		</div>
+		<hr>
+		<div class="footer">
+			<p>&copy; <%= Time.now.year %> FabSoft - CESUPA.</p>
+		</div>
+	</div>
 </body>
 </html>

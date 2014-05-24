@@ -1,18 +1,32 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
+<div class="page-header">
+	<h1>Show Article</h1>
+</div>
+<div class="container">
+  	<div class="row">
+	    <div class="panel panel-default">
+	      	<div class="panel-heading">
+	        	<h3 class="panel-title">Article</h3>
+	  		</div>
+	      	<br>
+	      	<div class="panel-body">
+				<p>
+				  <strong>Title:</strong>
+				  <%= @article.title %>
+				</p>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+				<p>
+					<strong>Text:</strong>
+					<%= @article.text %>
+				</p>
 
-<h2>Add a comment:</h2>
-<%= render "comments/form" %>
+				<p>
+				  	<h2>Comments</h2>
+					<%= render @article.comments %>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
 
 <%= link_to 'Back', articles_path %> |
 <%= link_to 'Edit', edit_article_path(@article) %>

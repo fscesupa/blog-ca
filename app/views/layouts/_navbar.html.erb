@@ -1,0 +1,17 @@
+<link href="blog.css" rel="stylesheet">
+
+<div class="blog-masthead">
+  <div class="container">
+    <nav class="blog-nav">
+		<%= link_to 'Home', root_path, class: 'blog-nav-item' %>
+		<%= link_to 'Articles', articles_path, class: 'blog-nav-item' %>
+		<% if user_signed_in? %>
+	      	<%= link_to "Logout", destroy_user_session_path, method: 'delete', class: "blog-nav-item pull-right" %>
+	      	<%= link_to current_user.email, edit_user_registration_path(current_user), class: "blog-nav-item pull-right" %>
+		<% else %>
+			<%= link_to "Register", new_user_registration_path, class: "blog-nav-item pull-right" %>
+			<%= link_to "Login", new_user_session_path, class: "blog-nav-item pull-right" %>
+		<% end %>
+    </nav>
+  </div>
+</div>

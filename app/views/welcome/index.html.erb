@@ -1,1 +1,47 @@
-<h1>Hello, Rails</h1>
+<div class="container">
+
+	<div class="blog-header">
+		<h1 class="blog-title">Computação Amostra Blog</h1>
+		<p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
+	</div>
+
+	
+	<div class="row">
+		<div class="col-sm-8 blog-main">
+			<% @articles.each do |article| %>
+				<div class="blog-post">
+					<h2 class="blog-post-title"><%= article.title %></h2>
+					<p class="blog-post-meta"><%= article.created_at.to_formatted_s(:long) %> by <%= article.author %></p>
+					<p><%= article.text %></p>
+					<hr>
+				</div><!-- /.blog-post -->
+				<h2>Comments</h2>
+				<%= render article.comments %>
+				<hr>
+				<h2>Add a comment:</h2>
+				<%= render "comments/form" %><br>
+			<% end %>
+		<center>
+			<%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
+		</center>
+		</div><br><!-- /.blog-main -->
+
+		<div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+			<div class="sidebar-module sidebar-module-inset">
+				<h4>About</h4>
+				<p>A Amostra de Computação do CESUPA, irá para décima edição, conta com a participação dos mais de 500 alunos da área de Computação do CESUPA, abrangendo os cursos de Ciência da Computação, Sistemas de Informação e Engenharia de Computação, além de atrair interessados em tecnologia das escolas de 1º e 2º. graus, profissionais da área e empresas com interesse na divulgação e fomento da Computação, seja através do desenvolvimento, inovação ou formação.</p>
+			</div>
+			<div class="sidebar-module">
+				<h2>Archives</h2>
+				<% @article_by_month.each do |monthname, articles| %>
+				<h4><strong><%= monthname %></strong></h4>
+				<ol>
+					<% articles.each do |article| %>
+					    <li><%= article.title %></li>
+				   <% end %>
+				</ol>
+				<% end %>
+			</div>
+		</div>
+	</div><!-- /.row -->
+</div><!-- /.container -->
