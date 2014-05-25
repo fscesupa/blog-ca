@@ -19,7 +19,24 @@
 				<%= render article.comments %>
 				<hr>
 				<h2>Add a comment:</h2>
-				<%= render "comments/form" %><br>
+				<%= simple_form_for [article, article.comments.build], :html => { :class => 'form-horizontal' } do |f| %>
+				  <%= f.error_notification %>
+				    <div class="form-group">
+				      <div class="col-xs-3">
+				        <%= f.input :commenter %>
+				      </div>
+				    </div>
+
+				    <div class="form-group">
+				      <div class="col-xs-6">
+				        <%= f.input :body %>
+				      </div>
+				    </div>
+
+				    <div class="form-actions">
+				      <%= f.submit class: "btn btn-primary" %>
+				    </div>
+				<% end %>
 			<% end %>
 		<center>
 			<%= will_paginate @articles, renderer: BootstrapPagination::Rails %>
